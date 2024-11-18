@@ -1,0 +1,18 @@
+{
+  "name": "postgres-sink-connector",
+  "config": {
+    "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+    "tasks.max": "1",
+    "topics": "enriched_orders",
+    "connection.url": "jdbc:postgresql://postgres:5432/mydatabase",
+    "connection.user": "myuser",
+    "connection.password": "mypassword",
+    "insert.mode": "insert",
+    "auto.create": "true",
+    "auto.evolve": "true",
+    "pk.mode": "record_key",
+    "pk.fields": "order_id",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "false"
+  }
+}
